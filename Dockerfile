@@ -11,12 +11,8 @@ RUN git clone https://github.com/IdoBouskila/Pokedex.git && \
         const request = new XMLHttpRequest();\n\
         request.open('GET', '/base.txt', false);\n\
         request.send();\n\
-        if (request.status === 200) {\n\
-            base = request.responseText;\n\
-        }\n\
-    } catch (e) {\n\
-        console.error(e);\n\
-    }\
+        if (request.status === 200) { base = request.responseText; }\n\
+    } catch (e) { console.error(e); }\
     " && \
     sed -i "/export const apiFetch/i$PATCH" src/utils/api-fetch.js
 
